@@ -1,0 +1,25 @@
+{
+  "name": "emotiontext",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "node-fetch": "^2.2.0",
+    "nodemon": "^1.18.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jenniferlai43/emotiontext.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jenniferlai43/emotiontext/issues"
+  },
+  "homepage": "https://github.com/jenniferlai43/emotiontext#readme"
+}
