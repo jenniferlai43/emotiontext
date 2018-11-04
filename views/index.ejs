@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Socket.IO Chat Example</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <ul class="pages">
+    <li class="chat page">
+      <div class="chatArea">
+        <ul class="messages"></ul>
+      </div>
+      <div class = "input_area">
+        <input class="inputMessage" placeholder="Type here..."/>
+          <form>
+            <div id = 'img_wrapper'>
+                <input type="file" id='file-upload' name="file-upload" img = '/camera.png' />
+                <label for='file-upload'>
+                  <img id = 'camera' src = '/camera.png'/>
+                </label>
+            </div>
+              <button id = 'submit_button' type='submit' value='submit'></button>
+              <label for = 'submit_button'>
+                  <img id = 'arrow' src='/arrow.png' />
+              </label>
+          </form>
+      </div>
+    </li>
+    <li class="login page">
+      <div class="form">
+        <h3 class="title">What's your name?</h3>
+        <input class="usernameInput" type="text" maxlength="14" />
+      </div>
+    </li>
+  </ul>
+
+  <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/main.js"></script>
+  <script src = "/camera.js"></script>
+  <script>
+    document.getElementById("submit_button").addEventListener("click", function(event){
+        event.preventDefault()
+    });
+  </script>
+</body>
+</html>
