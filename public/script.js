@@ -37,8 +37,13 @@ $(document).ready(()=> {
             canvas.height = height;
             context.drawImage(video, 0, 0, width, height);
             
-            console.log(typeof(canvas));
-            // var data = canvas.toDataURL('image/png');
+            //console.log(typeof(canvas));
+            var picURL = canvas.toDataURL('image/png');
+            var parentDiv = document.getElementsByClassName('camera')[0];
+            var newDiv = document.createElement('img');
+            newDiv.src = picURL;
+            parentDiv.parentNode.replaceChild(newDiv, parentDiv);
+
             var data = canvas.toBlob((blob) => {
                 getEmotion(blob).then((emotion) => {
                     console.log(emotion)
@@ -50,6 +55,11 @@ $(document).ready(()=> {
         } else {
             clearphoto();
         }
+    }
+
+    function setPhoto()
+    {
+
     }
 
     function clearphoto() {
