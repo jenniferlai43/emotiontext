@@ -1,15 +1,16 @@
 // javascript function using the Microsoft Azure Face API 
 
-function getEmotion(fileName) {
+function getEmotion(imageBinary) {
     var result = ""
-    const fetch = require("node-fetch")                             // import package fetch for javascript 
-    const fs = require("fs")
+    // const fetch = require("node-fetch")                             // import package fetch for javascript 
+    // const fs = require("fs")
     const subscriptionKey = '6809d2c368654653a643c30af830f24a'      // use git ignore for privacy concerns
     //const imgUrl = "https://image.shutterstock.com/image-photo/young-funny-woman-making-fish-260nw-544767610.jpg"       // uncomment for url
     // const imgData = {           // uncomment for url
     //    url: imgUrl              // uncomment for url
     // }                           // uncomment for url
-    const imgData = fs.readFileSync(fileName)            // uncomment for binary data
+    // const imgData = fs.readFileSync(fileName)            // uncomment for binary data
+    const imgData = imageBinary            // uncomment for binary data
 
     return fetch("https://westus.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceId=false&returnFaceAttributes=emotion", {
         method: "POST",
@@ -37,6 +38,6 @@ function getEmotion(fileName) {
     })
 }
 
-getEmotion("happy.jpeg").then((result) => {
-    console.log(result)
-});
+// getEmotion("happy.jpeg").then((result) => {
+//     console.log(result)
+// });

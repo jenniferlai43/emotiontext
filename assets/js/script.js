@@ -38,10 +38,15 @@ $(document).ready(()=> {
             context.drawImage(video, 0, 0, width, height);
             
             console.log(typeof(canvas));
-            var data = canvas.toDataURL('image/png');
-            console.log(typeof(data));
-            //console.log(data);
-            photo.setAttribute('src', data);
+            // var data = canvas.toDataURL('image/png');
+            var data = canvas.toBlob((blob) => {
+                getEmotion(blob).then((emotion) => {
+                    console.log(emotion)
+                })
+            });
+            // console.log(typeof(data));
+            // console.log(data);
+            // photo.setAttribute('src', data);
         } else {
             clearphoto();
         }
