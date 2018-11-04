@@ -1,4 +1,7 @@
-const multer = require('multer');
+
+var mongoose = require('mongoose');
+
+var Emotion = require('../models/emotion.js');
 
 
 module.exports = (app) => {
@@ -15,8 +18,25 @@ module.exports = (app) => {
 	*/
 
 	//query through database, look for max emotion
+	
+	Emotion.create({emotion: "happiness", rate: 10, message: 'Hello!'}, (err, obj)=>{
+		console.log('objinsertest:');
+		console.log(obj);
+	});
+
 	app.post('/message', (req, res) => {
 		//getting data from request
+		var emotion = req.body.emotion;
+		console.log('emotion: '+ emotion);
+		Emotion.find({emotion: emotion}).limit(1).exec((err, obj)=>{
+			if (err) throw err;
+			else
+			{
+				console.log(obj);
+				res.json(obj);
+			}
+		});
 	});
+	
 
 }

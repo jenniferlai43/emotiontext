@@ -230,7 +230,7 @@ $(function() {
   socket.on('login', (data) => {
     connected = true;
     // Display the welcome message
-    var message = "Welcome to Socket.IO Chat – ";
+    var message = "EmotionToText - We tell them how you feel.";
     log(message, {
       prepend: true
     });

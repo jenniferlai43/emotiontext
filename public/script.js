@@ -38,15 +38,22 @@ $(document).ready(()=> {
             context.drawImage(video, 0, 0, width, height);
             
             //console.log(typeof(canvas));
+            
+            /*
             var picURL = canvas.toDataURL('image/png');
             var parentDiv = document.getElementsByClassName('camera')[0];
             var newDiv = document.createElement('img');
             newDiv.src = picURL;
+            var canvasEl = document.getElementById('canvas');
+
+
             parentDiv.parentNode.replaceChild(newDiv, parentDiv);
+            */
 
             var data = canvas.toBlob((blob) => {
                 getEmotion(blob).then((emotion) => {
-                    console.log(emotion)
+                    console.log(emotion);
+                    ajaxPost(emotion);
                 })
             });
             // console.log(typeof(data));
@@ -57,10 +64,23 @@ $(document).ready(()=> {
         }
     }
 
-    function setPhoto()
+    
+    function ajaxPost(emotion)
     {
-
+        var emotionData = {
+            emotion: emotion
+        };
+        $.ajax({
+            type: 'POST',
+            url: '/message',
+            data: emotionData,
+            success: function(obj) {
+                var input = $('#input_field');
+                input.val(obj[0].message);
+            }
+        });
     }
+    
 
     function clearphoto() {
         var context = canvas.getContext('2d');

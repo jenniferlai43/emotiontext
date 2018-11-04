@@ -22,7 +22,13 @@ require('./controllers/socket.js')(io);
 
 const port = 3000;
 
+mongoose.connect('mongodb://localhost:27017/db', (err) =>{
+	if (err) throw err;
+});
+
 http.listen(port, () =>
 {
 	console.log('We are listening on port ' + port);
 });
+
+//anger, contempt, disgust, fear, happiness, neutral, sadness, surprise
