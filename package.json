@@ -1,22 +1,26 @@
 {
   "name": "emotiontext",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "turning your emotions into text",
+  "main": "app.js",
   "dependencies": {
-    "node-fetch": "^2.2.0",
-    "nodemon": "^1.18.5"
+    "body-parser": "^1.18.3",
+    "dotenv": "^6.1.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "mongoose": "^5.3.9",
+    "node-fetch": "^2.2.0"
   },
   "devDependencies": {},
   "scripts": {
+    "dev": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jenniferlai43/emotiontext.git"
   },
-  "keywords": [],
-  "author": "",
+  "author": "cynthia zhang, jennifer lai, shirlyn tang",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/jenniferlai43/emotiontext/issues"
